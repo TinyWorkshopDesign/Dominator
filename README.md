@@ -1,6 +1,6 @@
 # Dominator
 
-Native macOS / iOS / iPadOS app that generates printable PDFs of **fiducial dominoes** for the [Shaper Origin](https://shapertools.com/origin/) CNC machine.
+Native macOS app that generates printable PDFs of **fiducial dominoes** for the [Shaper Origin](https://shapertools.com/origin/) CNC machine.
 
 ![Dominator](screenshots/Dominator.png)
 
@@ -10,7 +10,7 @@ Dominator creates PDFs containing **452 valid fiducial domino patterns** — the
 
 ## Features
 
-- **Multi-platform**: macOS 14+, iOS 17+, iPadOS 17+
+- **macOS 14+**: native SwiftUI app, no dependencies
 - **Paper sizes**: A0–A5, US Letter, Legal, Tabloid, ANSI C–E, or custom dimensions
 - **Units**: inches, millimeters, centimeters
 - **Orientation**: portrait or landscape
