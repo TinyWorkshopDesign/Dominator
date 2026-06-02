@@ -1,0 +1,16 @@
+## Xcode
+build/
+buildRelease/
+*.xcuserdata/
+*.xcuserstate/
+DerivedData/
+
+## macOS
+.DS_Store
+*.dmg
+
+## Claude / AI tooling
+.claude/
+
+## macOS build artifacts
+*.dSYM

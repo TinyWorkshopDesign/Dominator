@@ -1,0 +1,154 @@
+GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+                            Preamble
+
+  The GNU General Public License is a free, copyleft license for
+software and other kinds of works.
+
+  The licenses for most software and other practical works are designed
+to take away your freedom to share and change the works.  By contrast,
+the GNU General Public License is intended to guarantee your freedom to
+share and change all versions of a program--to make sure it remains free
+software for all its users.  We, the Free Software Foundation, use the
+GNU General Public License for most of our software; it applies also to
+any other work released this way by its authors.  You can use it for
+your programs, too.
+
+  When we speak of free software, we are referring to freedom, not
+price.  Our General Public Licenses are designed to make sure that you
+have the freedom to distribute copies of free software (and charge for
+them if you wish), that you receive source code or can get it if you
+want it, that you can change the software or use pieces of it in new
+free programs, and that you know you can do these things.
+
+  To protect your rights, we need to prevent others from denying you
+these rights or asking you to surrender the rights.  Therefore, you have
+certain responsibilities if you distribute copies of the software, or if
+you modify it: responsibilities to respect the freedom of other users.
+
+  For example, if you distribute copies of such a program, whether
+gratis or for a fee, you must pass on to the recipients the same
+freedoms that you received.  You must give them any and all copyright,
+patent, trademark and similar rights that you have in the source code.
+  You must make sure that anyone receiving a copy of the program
+actually does receive the source code.  You must show them these terms
+to them so they know their rights.
+
+  Some of the responsibilities included in the GPL:
+- You must give anyone who receives a copy of the program access to the
+  corresponding source code.
+- You must clearly and prominently offer these same terms to all
+  recipients.
+- If the program interacts with users over a computer network, and
+  does anything special, you must give them the right to view and
+  change the source code.
+
+  The source code for a work means the preferred form of the work for
+making modifications to it.  For a compiled work, the source code means
+all the source code for all modules it contains, plus any associated
+interface definition files, plus the scripts to control compilation
+and installation of the executable.
+
+  A "Secondary Program" is a work that, neither by itself nor by
+combination with the work, causes it to be an extended work.
+
+  Corresponding Source is the complete set of materials needed to
+study, understand, revise and compile or modify the work.
+
+  A "user product" is either (1) a "consumer product", which means any
+tangible personal property which is normally used for personal, family,
+or household purposes, or (2) a "personal service entity", which is an
+entity whose principal activity is the provision of personal services.
+
+  "Essential facilities" means facilities that are necessary for making
+use of the work.
+
+  "Installation Information" means methods, procedures, authorization
+keys, or other information required to install and execute modified
+versions of a covered work in a user product from a modified version
+of the corresponding source code of the covered work.
+
+  The Corresponding Source code, source code form, and installation
+information must be in a form that is publicly available (either
+free of charge or for a fee no more than your cost of reasonably
+obtaining the source).
+
+  No Covered Work may be taken from the public domain within any
+jurisdiction, by private rights, whether by patent, trademark,
+contract or otherwise.
+
+  This license is acceptable to the Free Software Foundation as a
+free software license or for other kinds of works.
+
+  The terms and conditions for modifying, and/or redistributing this
+license are covered under Section 6 of the GNU General Public License
+version 3.
+
+                       SECTION 13. Remote Network Interaction;
+                      Use with GNU General Public License Version 3
+
+  Notwithstanding any other provision of this License, to the extent
+that this work is used to facilitate remote network interaction
+with a computer, you must ensure that the user is able to view,
+modify, and redistribute the Corresponding Source code for this
+work, with or without modifications, under the terms of this License,
+through the same network used for such interaction by users of this
+work through a standard interface available to the public for
+performing such modification.
+
+  This section of the license does not have any provisions relating
+to privacy, user data, or information collected through the network
+interaction.
+
+                       SECTION 14. Revised Versions of this License
+
+  The Free Software Foundation may publish revised and/or new versions of
+the GNU General Public License from time to time.  Such new versions
+will be similar in spirit to the present version, but may differ in detail
+to address new problems or concerns.
+
+  Each version is given a distinguishing version number.  If the
+Program specifies that a certain numbered version of the GNU General
+Public License "or any later version" applies to it, you have the
+option of following the terms and conditions either of that numbered
+version or of any later version published by the Free Software
+Foundation.  If the Program does not specify a version number of the
+GNU General Public License, you may choose any version ever published
+by the Free Software Foundation.
+
+  If the Program specifies that a proxy can decide which future
+versions of the GNU General Public License can be used, that proxy's
+public statement of acceptance of a version permanently authorizes
+you to choose that version for the Program.
+
+  Later license versions may give you additional or different
+permissions.  However, no additional obligations are imposed on any
+author or copyright holder.
+
+                      SECTION 15. No Warranty
+
+  THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+  IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR REDISTRIBUTES
+THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGES.
+
+                    END OF TERMS AND CONDITIONS
