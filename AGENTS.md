@@ -7,6 +7,10 @@ App nativa **SwiftUI multipiattaforma** (macOS 14+ / iOS 17+ / iPadOS) che gener
 stampabili di *fiducial domino* per il CNC **Shaper Origin**. È un **porting in Swift** della
 web app Python/Flask [berncodes/pyDominoPDF](https://github.com/berncodes/pyDominoPDF).
 
+> 📱 **Politica iOS** (decisione del proprietario, 2026-06-11): il codice resta multipiattaforma
+> (NON rimuovere i rami `#if os(iOS)` né le piattaforme dal pbxproj), ma si **distribuisce solo
+> per macOS**. La versione iPhone/iPad verrà fatta solo se c'è richiesta, e a pagamento.
+
 > ⚖️ **Licenza**: l'originale è **GPLv3**. Questo è un lavoro derivato → va mantenuto e
 > distribuito sotto **GPLv3**. Tenerne conto se si aggiungono dipendenze o si pubblica.
 
@@ -103,6 +107,19 @@ Tools/make_icon.swift         genera le icone (quadrato nero, 3 punti bianchi a 
 5. Le dimensioni di pagina **non si riconvertono** al cambio di unità (comportamento ereditato
    dall'originale). Il menu Paper size applica i valori nell'unità corrente.
 
+## Release (DMG + GitHub) — processo verificato (v1.1.0, 2026-06-11)
+1. **Bump versione**: `MARKETING_VERSION` nel pbxproj compare **4 volte** (Debug/Release
+   dell'app E del test target): aggiornarle tutte (`sed` va bene).
+2. Commit + push del bump, poi build Release (comando nel README, `-derivedDataPath buildRelease`).
+3. **DMG**: cartella staging con l'app (`ditto`) + symlink ad `/Applications`, poi
+   `hdiutil create -volname "Dominator" -srcfolder <staging> -ov -format UDZO Dominator.dmg`.
+   Il `.dmg` è gitignorato: NON committarlo.
+4. **Pubblicazione**: `gh release create vX.Y.0 Dominator.dmg --title "Dominator vX.Y.0" --notes ...`
+   su `TinyWorkshopDesign/Dominator`. Tenere il formato delle note delle release precedenti
+   (What's new / Install / sezione Gatekeeper / Credits). Il README punta a "Releases latest".
+5. L'utente tiene una copia in `/Applications/Dominator.app`: dopo una release va aggiornata
+   anche quella (`rm -rf` + `ditto` dalla build Release).
+
 ## Icone (Tools/make_icon.swift)
 - Genera due master 1024px: `fullBleed=true` per iOS (il sistema arrotonda), `false` per macOS
   (squircle nero con margine trasparente). Poi si ridimensiona con `sips` nei file
@@ -122,6 +139,7 @@ swift /tmp/t.swift
 ```
 
 ## Stato / possibili migliorie
+- **Versione corrente: 1.1** (release `v1.1.0` su GitHub con DMG, 2026-06-11).
 - Icona non aggiornata col nuovo nome (è solo grafica, non contiene testo: ok così).
 - Conversione automatica dimensioni al cambio unità: non implementata (di proposito).
 - Rinomina interna completa a "Dominator" (target/cartella/identifier): non fatta, puramente
