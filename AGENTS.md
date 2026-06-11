@@ -32,6 +32,20 @@ open "build/Build/Products/Debug/Dominator.app"
 - iOS: `-sdk iphonesimulator -destination 'generic/platform=iOS Simulator'`.
 - Dopo aver cambiato `PRODUCT_NAME` o gli asset/icone, fare `clean build` (o `rm -rf build`).
 
+## Test (lanciarli dopo ogni modifica a Models/)
+```bash
+xcodebuild -project DominoPDF.xcodeproj -scheme DominoPDF -sdk macosx \
+  -destination 'platform=macOS' -derivedDataPath build \
+  CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=YES CODE_SIGNING_ALLOWED=YES test
+```
+Il target `DominoPDFTests` (cartella `DominoPDFTests/`, gruppo sincronizzato come l'app)
+congela gli invarianti critici: **i 452 valori validi** (conteggio, primi/ultimi 10,
+checksum 593460 — verificati identici alla lista hardcoded del Python), le regole a 12 bit,
+sanitizzazione config, fattori di scala, round-trip della calibrazione tra unità, e
+dimensioni/numero pagine del PDF generato. ⚠️ Se un test sui valori fallisce, è l'algoritmo
+a essere rotto, NON il test: i fiducial sbagliati non vengono riconosciuti da Shaper Origin.
+I test girano hosted nell'app (`@testable import Dominator`), quindi serve la firma ad-hoc.
+
 ## Struttura
 ```
 DominoPDF/
@@ -46,6 +60,8 @@ DominoPDF/
     SettingsForm.swift        Form con sezioni collassabili
     PDFKitView.swift          anteprima (NS/UIViewRepresentable)
   Assets.xcassets/AppIcon.appiconset/   icone (vedi Tools/make_icon.swift)
+DominoPDFTests/
+  DominoGeneratorTests.swift  unit test (valori validi, config, calibrazione, PDF)
 Tools/make_icon.swift         genera le icone (quadrato nero, 3 punti bianchi a L)
 ```
 
@@ -110,4 +126,7 @@ swift /tmp/t.swift
 - Conversione automatica dimensioni al cambio unità: non implementata (di proposito).
 - Rinomina interna completa a "Dominator" (target/cartella/identifier): non fatta, puramente
   estetica e invasiva.
-- Niente persistenza delle impostazioni tra sessioni (l'originale usava cookie).
+- **Persistenza**: i soli dati di calibrazione (`CalibrationSettings`: unità + stated/measured)
+  sono salvati in `UserDefaults` (`CalibrationStore`, in DominoConfig.swift) e ripristinati
+  all'avvio convertendoli nell'unità corrente. Il resto della config non persiste (come
+  l'originale, che usava cookie). "Reset to defaults" riporta — e quindi salva — i default.

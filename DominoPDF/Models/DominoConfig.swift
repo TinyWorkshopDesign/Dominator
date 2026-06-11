@@ -176,3 +176,49 @@ struct DominoConfig: Codable, Equatable {
         return c
     }
 }
+
+// MARK: - Persistenza della calibrazione
+
+/// Dati di calibrazione salvati tra le sessioni: chi usa sempre la stessa stampante
+/// ritrova la correzione di scala già pronta al riavvio. L'unità registra in cosa
+/// erano espressi i valori, per riconvertirli all'unità corrente al caricamento.
+struct CalibrationSettings: Codable, Equatable {
+    var unit: DominoUnit
+    var xStated: Double
+    var xMeasured: Double
+    var yStated: Double
+    var yMeasured: Double
+}
+
+extension DominoConfig {
+    /// Fotografia dei soli dati di calibrazione correnti.
+    var calibration: CalibrationSettings {
+        CalibrationSettings(unit: unit, xStated: xStated, xMeasured: xMeasured,
+                            yStated: yStated, yMeasured: yMeasured)
+    }
+
+    /// Applica una calibrazione salvata convertendo i valori nell'unità corrente
+    /// (il fattore di correzione, essendo un rapporto, resta identico).
+    mutating func apply(_ saved: CalibrationSettings) {
+        let k = saved.unit.toMillimeters / unit.toMillimeters
+        xStated = saved.xStated * k
+        xMeasured = saved.xMeasured * k
+        yStated = saved.yStated * k
+        yMeasured = saved.yMeasured * k
+    }
+}
+
+/// Lettura/scrittura della calibrazione in `UserDefaults` (JSON).
+enum CalibrationStore {
+    private static let key = "calibrationSettings"
+
+    static func load() -> CalibrationSettings? {
+        guard let data = UserDefaults.standard.data(forKey: key) else { return nil }
+        return try? JSONDecoder().decode(CalibrationSettings.self, from: data)
+    }
+
+    static func save(_ settings: CalibrationSettings) {
+        guard let data = try? JSONEncoder().encode(settings) else { return }
+        UserDefaults.standard.set(data, forKey: key)
+    }
+}

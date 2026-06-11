@@ -6,7 +6,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var config = DominoConfig()
+    // Al primo avvio ripristina la calibrazione salvata (stessa stampante = lavoro già fatto).
+    @State private var config: DominoConfig = {
+        var c = DominoConfig()
+        if let saved = CalibrationStore.load() { c.apply(saved) }
+        return c
+    }()
     @State private var pdfData = Data()
     @State private var showExporter = false
 
@@ -25,6 +30,9 @@ struct ContentView: View {
                         onPrint: { Printer.printPDF(pdfData) })
         }
         .task(id: config) { regenerate() }
+        .onChange(of: config.calibration) { _, newValue in
+            CalibrationStore.save(newValue)
+        }
         .fileExporter(
             isPresented: $showExporter,
             document: PDFFile(data: pdfData),
